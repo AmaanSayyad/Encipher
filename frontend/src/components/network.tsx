@@ -8,6 +8,7 @@ import './network.css';
 export function Network() {
   const { isConnected } = useAccount();
   const { chain, chains } = useNetwork();
+  console.log(chains,"chains")
   const { switchNetwork } = useSwitchNetwork();
 
   if (isConnected && switchNetwork && chain) {
@@ -30,7 +31,7 @@ export function Network() {
         </div>
         <div className="dropdown-body">
           {chains
-            .filter((chain) => [250, 4002].indexOf(chain.id) >= 0)
+            .filter((chain) => [1, 2710].indexOf(chain.id) >= 0)
             .map((chain) => (
               <button
                 className="hbutton hbutton-lnk"

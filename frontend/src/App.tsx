@@ -3,16 +3,25 @@ import './App.css';
 
 import { Main } from './pages/main';
 
-import { configureChains, createClient, goerli, mainnet, WagmiConfig } from 'wagmi';
-import { fantom, fantomTestnet, localhost } from 'wagmi/chains';
+import { configureChains, createClient, WagmiConfig } from 'wagmi';
+
+import { morphSepolia as baseMorphSepolia } from "viem/chains";
+
 
 import { publicProvider } from 'wagmi/providers/public';
-
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
+const morphSepolia = {
+  ...baseMorphSepolia,
+  network: "morph-sepolia",
+  rpcUrls: {
+    ...baseMorphSepolia.rpcUrls,
+    public: baseMorphSepolia.rpcUrls.default, // Add the 'public' property
+  },
+};
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [fantom, fantomTestnet, mainnet, goerli, localhost],
+  [morphSepolia],
   [publicProvider()]
 );
 const client = createClient({

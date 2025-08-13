@@ -51,7 +51,7 @@ export function Main() {
         <div className="promo large-block">
           <h1>
             Bring <span className="promo-accent">anonymous</span> & simple
-            <br /> transfers to {chain?.name.split(' ')[0] || 'Fantom'}
+            <br /> transfers to {chain?.name.split(' ')[0] || 'MORPH'}
           </h1>
 
           <div className="benefits">

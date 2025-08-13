@@ -15,8 +15,7 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction
 } from 'wagmi';
-import { default as REGISTRY_ABI } from '../contracts/Registry.sol/Registry.json';
-import { registryAddress } from '../utils/constants';
+import { REGISTRY_ABI,CONTRACT_ADDRESS} from  '../constant';
 import { calculateCrc } from '../utils/crc16';
 import useDebounce from '../utils/debounce';
 import { formatEtherTruncated } from '../utils/format';
@@ -57,8 +56,8 @@ export function Send() {
     error: prepareError,
     config,
   } = usePrepareContractWrite({
-    address: registryAddress[chain?.id || 0],
-    abi: REGISTRY_ABI.abi,
+    address: CONTRACT_ADDRESS,
+    abi: REGISTRY_ABI,
     functionName: 'publishAndSend',
     args: [
       '0x' + ephPublic?.getX().toString(16, 64),
