@@ -17,7 +17,7 @@ contract Registry {
     address token;
   }
 
-  address constant FTM = address(0x0);
+  address constant MORPH = address(0x0);
 
   uint8 public constant VERSION = 1;
 

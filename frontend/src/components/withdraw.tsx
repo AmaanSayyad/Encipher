@@ -17,7 +17,7 @@ import {
 } from '@wagmi/core';
 import { ec as EC } from 'elliptic';
 import { BigNumber, ethers } from 'ethers';
-import { formatEther, getAddress, keccak256 } from 'ethers/lib/utils';
+import { formatEther, getAddress, keccak256,parseEther } from 'ethers/lib/utils';
 import { useAccount, useContractRead, useNetwork } from 'wagmi';
 import { REGISTRY_ABI } from '../constant';
 import { copyTextToClipboard } from '../utils/clipboard';
@@ -200,11 +200,14 @@ export function Withdraw() {
     setIsSending(true);
 
     const bal = await fetchBalance({ address: addr });
+    console.log(bal,"bal");
     const key = buildPrivateKey(x, y, spendingKey);
+   
+
     const config = await prepareSendTransaction({
       request: {
         to: target,
-        value: bal.value,
+        value: parseEther("0.001"),
       },
     });
 
