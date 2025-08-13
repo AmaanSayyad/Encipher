@@ -9,9 +9,6 @@ export function Network() {
   const { isConnected } = useAccount();
   const { chains } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
-
-
-
   const primaryChain = chains[0];
 
   console.log(primaryChain,"primary")

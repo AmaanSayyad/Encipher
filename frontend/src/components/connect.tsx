@@ -19,15 +19,13 @@ import { formatEtherTruncated } from '../utils/format';
 export function Connect() {
   const { address, isConnected } = useAccount();
   const { data: balance } = useBalance({ address, watch: true, cacheTime: 3_500 });
-  // const { data: ensAvatar } = useEnsAvatar({ address, chainId: 1 });
-  // const { data: ensName } = useEnsName({ address, chainId: 1 });
   const { connect, connectors, error, isLoading, pendingConnector } =
     useConnect();
-  const { chain } = useNetwork();
+    const { chains } = useNetwork();
+    const chain = chains[0];
   const { disconnect } = useDisconnect();
 
   const [metamask, walletConnect] = connectors;
-
   const shortAddress = address
     ? `${address.substring(0, 6)}…${address.substring(address.length - 4)}`
     : '-';
@@ -47,7 +45,7 @@ export function Connect() {
         </div>
         <div className="dropdown-body">
           <a
-            href={`https://ftmscan.com/address/${address}`}
+            href={`https://explorer-holesky.morphl2.io/address/${address}`}
             target="_blank"
             rel="noreferrer"
             className="text"

@@ -34,9 +34,10 @@ export function Send() {
     watch: true,
     cacheTime: 3_500,
   });
-  const { chain } = useNetwork();
+  const { chains } = useNetwork();
+  const chain = chains[0];
 
-  const [fantomAddr, setFantomAddr] = useState<string>(
+  const [morphAddr, setMorphAddr] = useState<string>(
     ethers.constants.AddressZero
   );
   const [sharedSecretByte, setSharedSecretByte] = useState<string>('0x00');
@@ -50,7 +51,7 @@ export function Send() {
   const [hash] = useState<string>(window.location.hash);
 
   const debouncedAmount = useDebounce(amountWei, 500);
-  const debouncedAddr = useDebounce(fantomAddr, 500);
+  const debouncedAddr = useDebounce(morphAddr, 500);
 
   const {
     isError: isPrepareError,
@@ -133,7 +134,7 @@ export function Send() {
 
       const addr = keccak256(pub.splice(1));
 
-      setFantomAddr(
+      setMorphAddr(
         getAddress('0x' + addr.substring(addr.length - 40, addr.length))
       );
 

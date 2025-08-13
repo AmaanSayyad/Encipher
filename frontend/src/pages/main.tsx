@@ -18,15 +18,15 @@ import Logo from '../svg/logo.svg';
 import SendReceive from '../svg/send-receive.svg';
 import Shield from '../svg/shield.svg';
 
-import { registryAddress } from '../utils/constants';
+
 
 import './main.css';
 
 export function Main() {
   const [activeTab, setActiveTab] = useState<string>('send');
 
-  const { chain } = useNetwork();
-  const contractAddress = registryAddress[chain?.id as number];
+  const { chains } = useNetwork();
+  const chain = chains[0];
   return (
     <section className="layout">
       <div className="content">
