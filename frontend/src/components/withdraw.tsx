@@ -207,7 +207,7 @@ export function Withdraw() {
     const config = await prepareSendTransaction({
       request: {
         to: target,
-        value: parseEther("0.001"),
+        value: parseEther("0.0001"),
       },
     });
 
