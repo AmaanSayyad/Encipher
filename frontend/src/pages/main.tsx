@@ -64,7 +64,7 @@ export function Main() {
             <div className="item">
               <img src={SendReceive} alt="" width={24} />
               <p>
-                Send and receive {chain?.nativeCurrency.symbol || 'FTM'}{' '}
+                Send and receive {chain?.nativeCurrency.symbol || 'ETH'}{' '}
                 <strong>privately</strong> as well as tokens & NFTs{' '}
                 <i>(soon)</i>
               </p>
@@ -86,7 +86,7 @@ export function Main() {
                   &nbsp; Send
                 </h2>
                 <span className="super">
-                  {chain?.nativeCurrency.symbol || 'FTM'}
+                  {chain?.nativeCurrency.symbol || 'ETH'}
                 </span>
               </div>
               <div
@@ -98,7 +98,7 @@ export function Main() {
                   &nbsp; Receive
                 </h2>
                 <span className="super">
-                  {chain?.nativeCurrency.symbol || 'FTM'}
+                  {chain?.nativeCurrency.symbol || 'ETH'}
                 </span>
               </div>
               <div className="tab disabled" title="Soon!">

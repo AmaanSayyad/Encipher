@@ -443,12 +443,12 @@ export function Withdraw() {
                 <p className="message">
                   <span>Transaction pending. </span>
                   <a
-                    href={`https://ftmscan.com/tx/${txPending}`}
+                    href={`https://explorer-holesky.morphl2.io/tx/${txPending}`}
                     target="_blank"
                     rel="noreferrer"
                     className="link-text"
                   >
-                    View on FTMScan{' '}
+                    View on MorphScan{' '}
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       transform={{ rotate: -45 }}
@@ -463,12 +463,12 @@ export function Withdraw() {
                 <p className="message">
                   <strong>Transaction sent! </strong>
                   <a
-                    href={`https://ftmscan.com/tx/${withdrawSuccess}`}
+                    href={`https://explorer-holesky.morphl2.io/tx/${withdrawSuccess}`}
                     target="_blank"
                     rel="noreferrer"
                     className="link-text"
                   >
-                    View on FTMScan{' '}
+                    View on MorphScan{' '}
                     <FontAwesomeIcon
                       icon={faArrowRight}
                       transform={{ rotate: -45 }}

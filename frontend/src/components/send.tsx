@@ -290,12 +290,12 @@ export function Send() {
               <p className="message">
                 <strong>Successfully sent!</strong>&nbsp;
                 <a
-                  href={`https://ftmscan.com/tx/${data?.hash}`}
+                  href={`https://explorer-holesky.morphl2.io/tx/${data?.hash}`}
                   className="link-text"
                   target="_blank"
                   rel="noreferrer"
                 >
-                  View on FTMScan{' '}
+                  View on MorphScan{' '}
                   <FontAwesomeIcon
                     icon={faArrowRight}
                     transform={{ rotate: -45 }}
