@@ -19,7 +19,7 @@ import { ec as EC } from 'elliptic';
 import { BigNumber, ethers } from 'ethers';
 import { formatEther, getAddress, keccak256 } from 'ethers/lib/utils';
 import { useAccount, useContractRead, useNetwork } from 'wagmi';
-import { REGISTRY_ABI,CONTRACT_ADDRESS } from '../constant';
+import { REGISTRY_ABI } from '../constant';
 import { copyTextToClipboard } from '../utils/clipboard';
 import { registryAddress } from '../utils/constants';
 import { formatEtherTruncated } from '../utils/format';
@@ -47,7 +47,7 @@ export function Withdraw() {
   const { isConnected, address, connector } = useAccount();
 
   const registryConfig = {
-    address: CONTRACT_ADDRESS as `0x${string}`,
+    address: registryAddress[chain?.id as number] as `0x${string}`,
     abi: REGISTRY_ABI,
   };
 

@@ -5,34 +5,68 @@ import { Main } from './pages/main';
 
 import { configureChains, createClient, WagmiConfig } from 'wagmi';
 
-import { morphSepolia as baseMorphSepolia } from "viem/chains";
-
 
 import { publicProvider } from 'wagmi/providers/public';
 import { MetaMaskConnector } from 'wagmi/connectors/metaMask';
 import { WalletConnectConnector } from 'wagmi/connectors/walletConnect';
-const morphSepolia = {
-  ...baseMorphSepolia,
-  network: "morph-sepolia",
-  rpcUrls: {
-    ...baseMorphSepolia.rpcUrls,
-    public: baseMorphSepolia.rpcUrls.default, // Add the 'public' property
+const customMorphChain = {
+  id
+    : 2710,
+  name
+    : 'Morph Sepolia',
+  nativeCurrency
+    : {
+    name
+      : 'Ether', symbol
+      : 'ETH', decimals
+      : 18
   },
-};
+  rpcUrls
+    : {
+    default
+      : {
+      http
+        : ['http://rpc-quicknode-holesky.morphl2.io/']
+    },
+    public
+      : {
+      http
+        : ['http://rpc-quicknode-holesky.morphl2.io/']
+    }
+  },
+  blockExplorers
+    : {
+    default
+      : {
+      name
+        : 'Morph Sepolia', url
+        : 'http://explorer-holesky.morphl2.io/'
+    },
+  },
+
+  testnet
+    :
+    true,
+  network
+    :
+    "morph"
+}
 
 const { chains, provider, webSocketProvider } = configureChains(
-  [morphSepolia],
+  [customMorphChain],
   [publicProvider()]
 );
 const client = createClient({
   autoConnect: true,
   connectors: [
     new MetaMaskConnector({ chains }),
-    new WalletConnectConnector({ chains, options: {
-    qrcode: true,
-    // version: '1',
-    //  projectId: process.env.REACT_APP_WALLET_CONNECT_ID || ''
-    }}),
+    new WalletConnectConnector({
+      chains, options: {
+        qrcode: true,
+        // version: '1',
+        //  projectId: process.env.REACT_APP_WALLET_CONNECT_ID || ''
+      }
+    }),
     /* new InjectedConnector({
       chains,
       options: {

@@ -15,10 +15,11 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction
 } from 'wagmi';
-import { REGISTRY_ABI,CONTRACT_ADDRESS} from  '../constant';
+import { REGISTRY_ABI} from  '../constant';
 import { calculateCrc } from '../utils/crc16';
 import useDebounce from '../utils/debounce';
 import { formatEtherTruncated } from '../utils/format';
+import { registryAddress } from '../utils/constants';
 
 const zero = BigNumber.from(0);
 
@@ -56,7 +57,7 @@ export function Send() {
     error: prepareError,
     config,
   } = usePrepareContractWrite({
-    address: CONTRACT_ADDRESS,
+    address: registryAddress[chain?.id as number] as `0x${string}`,
     abi: REGISTRY_ABI,
     functionName: 'publishAndSend',
     args: [
