@@ -3,10 +3,11 @@ The project comprises of a Registry smart contract written in Solidity and a web
 Currently, the platform is available on Morph.
 
 ## How does it work
-<img width="531" height="282" alt="payment_workflow" src="https://github.com/user-attachments/assets/d38b3272-3a51-4bb5-9bad-6693f8844c64" />
-
 Encipher Hazed is heavily inspired by [Vitalik's recent article on stealth addresses](https://vitalik.eth.limo/general/2023/01/20/stealth.html).
 Here is an excerpt from the article explaining cryptography under the hood:
+
+<img width="831" height="442" alt="Screenshot 2025-08-14 at 1 09 37 AM" src="https://github.com/user-attachments/assets/a7dfd826-cefa-47a4-beac-a8a12f87755b" />
+
 > 1. Bob generates his **root spending key** (`m`) and **stealth meta-address** (`M`).
 > 2. Bob adds an ENS record to register `M` as the stealth meta-address for `bob.eth`.
 > 3. We assume Alice knows that Bob is `bob.eth`. Alice looks up his stealth meta-address `M` on ENS.
@@ -21,6 +22,7 @@ Registry's `publishAndSend` method accepts ephemeral public key (`x` and `y`), f
 Hazed ID is base58-encoded public key with the prefix 0x48 ('H') and 2-bytes suffix of CRC16 checksum.
 
 <img width="782" height="697" alt="stealth_workflow" src="https://github.com/user-attachments/assets/2b51be6d-790c-44e7-bd6f-f0d9c0527464" />
+
 
 <img width="536" height="411" alt="zk_stealth" src="https://github.com/user-attachments/assets/16a9daab-b672-42bc-9365-2e8218e0cace" />
 
