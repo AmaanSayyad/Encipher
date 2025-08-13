@@ -26,8 +26,7 @@ export function Main() {
   const [activeTab, setActiveTab] = useState<string>('send');
 
   const { chain } = useNetwork();
-  const contractAddress = registryAddress[chain?.id || 250];
-
+  const contractAddress = registryAddress[chain?.id as number];
   return (
     <section className="layout">
       <div className="content">
@@ -160,7 +159,7 @@ export function Main() {
             </span>
           </a>
           <a
-            href={`https://ftmscan.com/address/${contractAddress}`}
+            href={`https://explorer-holesky.morphl2.io/tx/0x3f743027a5d3e10a39397412d273a35a5d91988c1146fa39379c0d6a64db9d94`}
             target="_blank"
             rel="noreferrer"
           >
@@ -173,7 +172,7 @@ export function Main() {
             </span>
           </a>
           <a
-            href="https://github.com/vden/hazed"
+            href="https://github.com/AmaanSayyad/Hazzy"
             target="_blank"
             rel="noreferrer"
           >

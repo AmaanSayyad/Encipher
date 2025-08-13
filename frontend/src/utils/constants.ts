@@ -1,25 +1,10 @@
-import network1 from '../svg/network1.svg';
-import network1337 from '../svg/network1337.svg';
-import network250 from '../svg/network250.svg';
-import network4002 from '../svg/network4002.svg';
-import network5 from '../svg/network5.svg';
+
 import { AddrMapType, MapType } from './types';
 
 export const networkIcons: MapType = {
-  1: network1,
-  5: network5,
-  250: network250,
-  4002: network4002,
-  1337: network1337,
   2710 :  "https://morph.ghost.io/content/images/2024/09/Morph.logo_Horizontal_Green.png"
 }
 
 export const registryAddress: AddrMapType = {
-  0: '0x0',
-  1: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
-  5: '0x9C235bf2f5003096C071DE63F7C1F004071EB6a6',
-  250: '0xB72655E4Fc245180b9C39b9DF80C8C0447379f07',
-  4002: '0xB72655E4Fc245180b9C39b9DF80C8C0447379f07',
-  1337: '0x5FbDB2315678afecb367f032d93F642f64180aa3',
   2710:'0x05A25D6357c6755Cb71DC6997D155CA9A7e3c971'
 }

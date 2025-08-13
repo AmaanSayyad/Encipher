@@ -7,47 +7,48 @@ import './network.css';
 
 export function Network() {
   const { isConnected } = useAccount();
-  const { chain, chains } = useNetwork();
-  console.log(chains,"chains")
+  const { chains } = useNetwork();
   const { switchNetwork } = useSwitchNetwork();
 
-  if (isConnected && switchNetwork && chain) {
-    const icon = networkIcons[chain.id];
 
-    return (
-      <div className="header-item">
-        <div className="dropdown-head">
-          {icon && <img width="18" src={icon} alt={chain.name} />}{' '}
-          {chain.unsupported ? (
-            <span>
-              <FontAwesomeIcon icon={faExclamationTriangle} /> Unsupported
-            </span>
-          ) : (
-            <p>{chain.name}</p>
-          )}
-          <button className="arrow arrow-down">
-            <img src={chevronUp} alt="" />
-          </button>
-        </div>
-        <div className="dropdown-body">
-          {chains
-            .filter((chain) => [1, 2710].indexOf(chain.id) >= 0)
-            .map((chain) => (
-              <button
-                className="hbutton hbutton-lnk"
-                style={{ paddingLeft: 0, textTransform: 'none' }}
-                key={chain.id}
-                onClick={() => switchNetwork(chain.id)}
-              >
-                <img width="18" src={networkIcons[chain.id]} alt={chain.name} />
-                &nbsp;
-                {chain.name}
-              </button>
-            ))}
-        </div>
+
+  const primaryChain = chains[0];
+
+  console.log(primaryChain,"primary")
+  if (!isConnected || !primaryChain) return null;
+
+  const icon = networkIcons[primaryChain.id];
+  const isUnsupported = false;
+
+  return (
+    <div className="header-item">
+      <div className="dropdown-head">
+        {icon && <img width="18" src={icon} alt={primaryChain.name} />}{' '}
+        {isUnsupported ? (
+          <span>
+            <FontAwesomeIcon icon={faExclamationTriangle} /> Unsupported
+          </span>
+        ) : (
+          <p>{primaryChain.name}</p>
+        )}
+        <button className="arrow arrow-down">
+          <img src={chevronUp} alt="" />
+        </button>
       </div>
-    );
-  }
-
-  return <></>;
+      <div className="dropdown-body">
+        {chains.map((c) => (
+          <button
+            className="hbutton hbutton-lnk"
+            style={{ paddingLeft: 0, textTransform: 'none' }}
+            key={c.id}
+            onClick={() => switchNetwork?.(c.id)}
+          >
+            <img width="18" src={networkIcons[c.id]} alt={c.name} />
+            &nbsp;
+            {c.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  );
 }
